@@ -4,6 +4,8 @@ import { ListUsersController } from "./controllers/ListUsersController";
 import { UpdateUserController} from "./controllers/UpdateUserController";
 import { DeleteUserController} from "./controllers/DeleteUserController";
 import { CreateSaleController} from "./controllers/Sale/CreateSaleController";
+import { CreateCategoryController} from "./controllers/Category/CreateCategoryController";
+
 import {AuthenticateUserController} from "./controllers/AuthenticateUserController";
 import { ensureAuthenticated} from "./midleware/ensureAuthenticated";
 import {ListSaleController} from "./controllers/Sale/ListSaleController";
@@ -14,6 +16,7 @@ import { ensureAdmin} from "./middlewares/ensureAdmin";
 
 */
 const createSaleController  = new CreateSaleController();
+const createCategoryController = new CreateCategoryController();
 const authenticationUserController  = new AuthenticateUserController();
 const createUserController  = new CreateUserController();
 const listUsersController  = new ListUsersController();
@@ -36,6 +39,8 @@ router.post("/sales", createSaleController.handle);
 router.get("/sales", listSaleController.handle);
 router.delete("/sales/:id", deleteSaleController.handle);
 router.put("/sales", updateSaleController.handle);
+
+router.post("/category", createCategoryController.handle);
 
 /*
 
