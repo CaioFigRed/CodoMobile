@@ -3,6 +3,8 @@ import { CreateUserController } from "./controllers/CreateUserController";
 import { ListUsersController } from "./controllers/ListUsersController";
 import { UpdateUserController} from "./controllers/UpdateUserController";
 import { DeleteUserController} from "./controllers/DeleteUserController";
+import { CreateCategoryController} from "./controllers/Category/CreateCategoryController";
+
 import {AuthenticateUserController} from "./controllers/AuthenticateUserController";
 import { ensureAuthenticated} from "./midleware/ensureAuthenticated";
 import { CreateSaleController} from "./controllers/Sale/CreateSaleController";
@@ -18,6 +20,7 @@ import { ensureAdmin} from "./middlewares/ensureAdmin";
 
 */
 const createSaleController  = new CreateSaleController();
+const createCategoryController = new CreateCategoryController();
 const authenticationUserController  = new AuthenticateUserController();
 const createUserController  = new CreateUserController();
 const listUsersController  = new ListUsersController();
@@ -49,6 +52,8 @@ router.post("/customer", createCustomerController.handle);
 router.get("/customer", listCustomerController.handle);
 router.delete("/customer/:id", deleteCustomerController.handle);
 router.put("/customer", updateCustomerController.handle);
+
+router.post("/category", createCategoryController.handle);
 
 /*
 
