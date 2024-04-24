@@ -1,4 +1,4 @@
-import { CategoryRepositories } from "../../repositories/CategoryRepositories";
+import { CategoryRepository } from "../../repositories/CategoryRepositories";
 import { getCustomRepository } from "typeorm";
 import { Category } from "../../entities/Category";
 
@@ -9,7 +9,7 @@ interface ICategoryRequest {
 class CreateCategoryService {
   async execute({ name }: ICategoryRequest) {
 
-    const categoryRepository = getCustomRepository(CategoryRepositories);
+    const categoryRepository = getCustomRepository(CategoryRepository); // Linha corrigida
 
     const category = categoryRepository.create({ name });
     await categoryRepository.save(category);
