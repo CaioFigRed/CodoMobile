@@ -1,19 +1,19 @@
 import { getCustomRepository } from "typeorm";
-import { CategoryRepositories } from "../../repositories/CategoryRepositories";
+import { CategoryRepository } from "../../repositories/CategoryRepository";
 interface ICategoryRequest {
     id: string;   name: string;
   }  
   class UpdateCategoryService {
     async execute({ id, name }: ICategoryRequest) {
-      const CategoryRepository = getCustomRepository(CategoryRepositories);
-      const CategoryAlreadyExists = await CategoryRepository.findOne({
+      const categoryRepository = getCustomRepository(CategoryRepository);
+      const categoryAlreadyExists = await categoryRepository.findOne({
         id,
       });
-      if (!CategoryAlreadyExists) {
+      if (!categoryAlreadyExists) {
           throw new Error("Category not exists")
       }
 
-      return await CategoryRepository.update(id,CategoryAlreadyExists)
+      return await categoryRepository.update(id,categoryAlreadyExists)
     }
   }  
   export { UpdateCategoryService };

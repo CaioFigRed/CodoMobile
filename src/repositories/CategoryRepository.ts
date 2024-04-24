@@ -1,3 +1,5 @@
+// Arquivo: src/repositories/CategoryRepository.ts
+
 import { EntityRepository, Repository } from "typeorm";
 import { Category } from "../entities/Category";
 

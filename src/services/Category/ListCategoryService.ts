@@ -1,9 +1,9 @@
 import { getCustomRepository } from "typeorm";
-import { CategoryRepositories } from "../../repositories/CategoryRepositories";
+import { CategoryRepository } from "../../repositories/CategoryRepository";
 
 class ListCategoryService {
   async execute() {
-    const categoryRepositories = getCustomRepository(CategoryRepositories);
+    const categoryRepositories = getCustomRepository(CategoryRepository);
 
     const category = await categoryRepositories.find();
 

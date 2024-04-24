@@ -1,4 +1,4 @@
-import { CategoryRepository } from "../../repositories/CategoryRepositories";
+import { CategoryRepository } from "../../repositories/CategoryRepository";
 import { getCustomRepository } from "typeorm";
 import { Category } from "../../entities/Category";
 
